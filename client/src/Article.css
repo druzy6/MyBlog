@@ -1,0 +1,7 @@
+.article {
+  margin: 2em;
+}
+
+.headline, .content {
+  text-align: left;
+}

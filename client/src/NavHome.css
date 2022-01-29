@@ -1,0 +1,8 @@
+.link :focus, :hover, :visited, :link, :active {
+  text-decoration: none;
+  color: black;
+}
+
+.navbar-cus {
+  background-color: rgba(213, 173, 251,0.3);
+}
