@@ -20,21 +20,12 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(cors());
 app.use(express.json());
 
-//data schema
-// const postSchema = new mongoose.Schema({
-//   Key: String,
-//   title: String,
-//   content: String,
-//   images: [{
-//     url: String,
-//     location: Number
-//   }],
-//   order: Number
-// });
-//
-// const Poster = mongoose.model('Poster', postSchema);
-
 //API routes
+
+app.get('/', (req, res) =>{
+  console.log('works');
+});
+
 app.get('/posters', function(req, res) {
   connection.query('SELECT * FROM posters' ,function(err, rows){
     if(err){
@@ -51,5 +42,19 @@ app.post('/create/newpost', function(req, res){
 });
 
 app.listen(port, function() {
-  console.log('express is running here');
+  console.log('express is running here ' );
 });
+
+//data schema
+// const postSchema = new mongoose.Schema({
+//   Key: String,
+//   title: String,
+//   content: String,
+//   images: [{
+//     url: String,
+//     location: Number
+//   }],
+//   order: Number
+// });
+//
+// const Poster = mongoose.model('Poster', postSchema);
