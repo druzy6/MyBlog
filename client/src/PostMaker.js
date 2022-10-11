@@ -11,7 +11,7 @@ function PostMaker(){
 
   function charHandle(event){
     const {value} = event.target;
-    setChars(value);
+    setChars(value.length);
   }
 
   function picsAdd(event){
