@@ -23,10 +23,15 @@ app.use(express.json());
 //API routes
 
 app.get('/', (req, res) =>{
-  console.log('works');
+  console.log('express running');
 });
 
-app.get('/posters', function(req, res) {
+app.post('/create/newpost', function(req, res){
+  const data = req.body.content;
+  console.log(data);
+});
+
+app.get('/posters', (req, res) => {
   connection.query('SELECT * FROM posters' ,function(err, rows){
     if(err){
       console.log(err);
@@ -34,11 +39,6 @@ app.get('/posters', function(req, res) {
       res.send(rows);
     }
   });
-});
-
-app.post('/create/newpost', function(req, res){
-  const data = req.body.content;
-  console.log(data);
 });
 
 app.listen(port, function() {
