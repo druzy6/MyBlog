@@ -42,7 +42,10 @@ app.get('/posters', (req, res) => {
 });
 
 app.listen(port, function() {
-  console.log('express is running here ' );
+  const re = /<img.*?>/g;
+  const text = 'I was trying to gerpgreipgmnripbn create a regullar expression that can tell images in html from text <img src="frkgfwiprgn"> inside text while there could be another'
+  +' <img src="aowefofje.jpg"> inside the thing'
+  console.log(re.exec(text));
 });
 
 //data schema
