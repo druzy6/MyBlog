@@ -24,14 +24,26 @@ in the blog*/
   function textComposer(){
     const reImg = /<img.*?>/g;
     const reSrc = /src=".*?"/;
-    var postContent = posts.content;
-    let text = postContent.split(reImg);
-    let images = postContent.match(reSrc);
+    const postContent = posts.content;
+    var text = postContent.split(reImg);
+    var images = postContent.match(reSrc);
     for(i in text.length){
+      let indexFound = postContent.match(text[i]);
+      text[i] = [{
+        text: text[i],
+        index: indexFound.index
+      }];
+    }for(i in images.length){
+      let indexFound = postContent.match(images[i]);
+      images[i] = [{
+        image: images[i],
+        index: indexFound.index
+      }];
+    }while(i < ((text.length <= images.length) ? images.length : text.length)){
 
     }
   }// use exec on each img tag inside the original text by making a litteral
-  //regex from them, then order everything by the found indexes. 
+  //regex from them, then order everything by the found indexes.
   return(
 
     );
