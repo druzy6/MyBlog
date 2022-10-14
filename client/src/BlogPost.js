@@ -39,8 +39,18 @@ in the blog*/
         image: images[i],
         index: indexFound.index
       }];
-    }while(i < ((text.length <= images.length) ? images.length : text.length)){
-
+    }
+    var i = 0;
+    var j = 0;
+    while(i < text.length && j < images.length){
+      switch (text[i].index > images[j].image) {
+        case true:
+          postContent += <h1>{text[i].text}</h1>;
+          i++
+          break;
+        case false:
+          post
+      }
     }
   }// use exec on each img tag inside the original text by making a litteral
   //regex from them, then order everything by the found indexes.
