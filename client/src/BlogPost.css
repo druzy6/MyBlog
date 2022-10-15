@@ -1,1 +1,17 @@
+.content .headline{
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  color: white;
+}
 
+.postImg{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.headline{
+  font-size: 36
+}

@@ -36,19 +36,14 @@ app.get('/posters', (req, res) => {
     if(err){
       console.log(err);
     }else{
+      console.log(rows);
       res.send(rows);
     }
   });
 });
 
 app.listen(port, function() {
-  const re = /<img.*?>/g;
-  const text = 'I was trying to gerpgreipgmnripbn create a regullar expression that can tell images in html from text <img src="frkgfwiprgn"> inside text while there could be another'
-  +' <img src="aowefofje.jpg"> inside the thing'
-  let smallText = ' <img src="aowefofje.jpg"> inside the thing';
-  smallText = smallText.match(re)[0];
-  let indexOfResult = text.match(smallText);
-  console.log(indexOfResult.index);
+  console.log('work');
 });
 
 //data schema

@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import {BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom'
 import Home from './Home';
 import PostMaker from './PostMaker';
+import BlogPost from './BlogPost';
 
 ReactDOM.render(
   <Router>
@@ -13,6 +14,7 @@ ReactDOM.render(
     <Routes>
       <Route path="/" element={<Home />}/>
       <Route path="/create" element={<PostMaker />} />
+      <Route path="/post" element={<BlogPost />}/>
     </Routes>
   </Router>,
   document.getElementById('root')

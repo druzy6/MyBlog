@@ -1,0 +1,27 @@
+// if(text.length > images.length){
+  //   for(i in images.length){
+    //       content += <h1> {text[i]} </h1>;
+    //       content += <img {images[i]}>;
+    //   }
+    //   content += <h1>{text[images.length]}</h1>;
+    //   return(content);
+    // }else if (text.length == images.length) {
+      //   for(i in images.length){
+        //     content += <h1> {text[i]} </h1>;
+        //     content += <img {images[i]}>;
+        //     return(content);
+        //   }
+        // }
+        // for(i in text.length){
+          //   let indexFound = content.match(text[i]);
+          //   text[i] = [{
+            //     text: text[i],
+            //     index: indexFound.index
+            //   }];
+            // }for(i in images.length){
+              //   let indexFound = content.match(images[i]);
+              //   images[i] = [{
+                //     image: images[i],
+                //     index: indexFound.index
+                //   }];
+                // }
