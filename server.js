@@ -43,7 +43,7 @@ app.get('/posters', (req, res) => {
 });
 
 app.listen(port, function() {
-  console.log('work');
+  console.log('works');
 });
 
 //data schema

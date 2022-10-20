@@ -1,11 +1,14 @@
 import React from 'react';
+import './BlogPost.css'
 import {Form, Button} from 'react-bootstrap';
 import {useState, useEffect} from 'react';
 import axios from 'axios';
 
-function BlogPost(){
+function BlogPost(props){
 
   const [posts, setPosts] = useState([]);
+  const composedText = textComposer();
+
 
   useEffect(() => {
     axios.get('http://localhost:5000/posters')
@@ -17,6 +20,7 @@ function BlogPost(){
       }
     }).catch(err => console.log(err));
   });
+
 /*I want to take the raw text from the server, extract the text that calls
 for an image in html, insent the image html instead while maintaining
 it's position in the text. in order to put images in there relavent place
@@ -24,12 +28,14 @@ in the blog*/
 
   function assignIndex(content, postContent, re){
     let indexFound = 0;
-    for(let i in content.length){
-      indexFound = postContent.match(re);
-      content[i] = [{
-        content: content[i],
-        index: indexFound.index
-      }]
+    if(postContent != null){
+      content.forEach((element, i) => {
+        indexFound = postContent.match(content[i]);
+        content[i] = [{
+            content: content[i],
+            index: indexFound.index
+          }]
+      });
     }
     return content;
   }
@@ -54,24 +60,26 @@ in the blog*/
   }
 
   function textComposer(){
-    const reImg = /<img.*?>/g;
-    const reSrc = /(src=").*?"/;
-    const {content} = posts.content;
+    const reImg = RegExp('/<img.*?>/g');
+    const reSrc = RegExp('/(src=").*?"/');
+    const content = String(props.content);
     var text = content.split(reImg);
     var images = content.match(reSrc);
     text = assignIndex(text, content, reImg);
-    images = assignIndex(images, content, reSrc);
     if(images == null){
       return(<div class="content">{content}</div>);
     }
+    images = assignIndex(images, content, reSrc);
     return(contentArrange(text ,images));
   }// use exec on each img tag inside the original text by making a litteral
   //regex from them, then order everything by the found indexes.
   return(
     <div>
-      <div class="headline"> {posts.headline}</div>
-      <div class="content"> {textComposer} </div>
+      <div class="headline"> {props.title}</div>
+      <div> {composedText} </div>
     </div>
   );
 }
+/*TODO when I put more posts, I need to change the way the posts are selected
+from just one post being selected to id based selection*/
 export default BlogPost;

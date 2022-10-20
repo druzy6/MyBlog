@@ -7,14 +7,16 @@ import {BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom'
 import Home from './Home';
 import PostMaker from './PostMaker';
 import BlogPost from './BlogPost';
+import Blog from './Blog'
 
+const index = 1;
 ReactDOM.render(
   <Router>
     <App />
     <Routes>
       <Route path="/" element={<Home />}/>
       <Route path="/create" element={<PostMaker />} />
-      <Route path="/post" element={<BlogPost />}/>
+      <Route path="/post" element={<Blog index={index} />} />
     </Routes>
   </Router>,
   document.getElementById('root')

@@ -1,8 +1,7 @@
-.content .headline{
+.content{
   text-align: center;
   font-family: 'Montserrat', sans-serif;
   font-weight: bold;
-  color: white;
 }
 
 .postImg{
@@ -13,5 +12,6 @@
 }
 
 .headline{
+  text-align: center;
   font-size: 36
 }
