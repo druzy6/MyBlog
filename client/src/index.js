@@ -17,6 +17,7 @@ ReactDOM.render(
       <Route path="/" element={<Home />}/>
       <Route path="/create" element={<PostMaker />} />
       <Route path="/post" element={<Blog index={index} />} />
+      <Route path="/:title" element={<Blog />}/>
     </Routes>
   </Router>,
   document.getElementById('root')

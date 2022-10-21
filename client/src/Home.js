@@ -3,7 +3,7 @@ import axios from 'axios';
 import {useState, useEffect} from 'react';
 import Article from './Article';
 import {Container, Row, Col} from 'react-bootstrap';
-import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
+import {BrowserRouter as Router, Route, Routes, Link} from 'react-router-dom';
 
 function Home(){
   const [posts, setPosts] = useState([]);
@@ -22,14 +22,16 @@ function Home(){
   return(
     <Container>
       <Row>
-      {posts.map(post => {
+      {posts.map((post, i) => {
         return(
           <Col xs={12} md={6}>
-            <Article
-              title={post.post_title}
-              content={post.content}
-              />
-          </Col>);
+            <Link to={'/' + post.post_title}>
+              <Article
+                title={post.post_title}
+                content={post.content}
+                />
+            </Link>
+            </Col>);
         })}
       </Row>
     </Container>);
