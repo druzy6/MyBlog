@@ -30,10 +30,6 @@ function PostMaker(){
   return(
     <div>
       <Form>
-        <Form.Group controlId="formFileMultiple" className="mb-3">
-          <Form.Label>post pictures</Form.Label>
-          <Form.Control type="file" value={pics} onChange={picsAdd} multiple />
-        </Form.Group>
         <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
           <Form.Label>char count: {chars}</Form.Label>
           <Form.Control as="textarea" rows={12} onChange={charHandle} />

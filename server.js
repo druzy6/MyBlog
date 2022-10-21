@@ -28,9 +28,11 @@ app.get('/', (req, res) =>{
 
 app.post('/create/newpost', function(req, res){
   const data = req.body.content;
-  console.log(data);
-});
+  connection.query('CALL insert_image(?,?)', [])
 
+});/*TODO need to separate the image src from the entire content, add a title
+to the PostMaker and send it though the post function
+DONT separate the text, the function in BlogPost already does that*/
 app.get('/posters', (req, res) => {
   connection.query('SELECT * FROM posters' ,function(err, rows){
     if(err){
