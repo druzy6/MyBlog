@@ -6,21 +6,7 @@ import axios from 'axios';
 
 function BlogPost(props){
 
-  const [posts, setPosts] = useState([]);
   const composedText = textComposer();
-
-
-  useEffect(() => {
-    axios.get('http://localhost:5000/posters')
-    .then(res => {
-      console.log(res);
-      if(!!res){
-        console.log(res.data);
-        setPosts(res.data);
-      }
-    }).catch(err => console.log(err));
-  });
-
 /*I want to take the raw text from the server, extract the text that calls
 for an image in html, insent the image html instead while maintaining
 it's position in the text. in order to put images in there relavent place

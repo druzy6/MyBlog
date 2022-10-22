@@ -27,10 +27,16 @@ app.get('/', (req, res) =>{
 });
 
 app.post('/create/newpost', function(req, res){
-  const data = req.body.content;
-  connection.query('CALL insert_image(?,?)', [])
-
-});/*TODO need to separate the image src from the entire content, add a title
+  // const data = req.body.content;
+  // connection.query("CALL insert_image(?,?);", () => {
+  //
+  //   req.body.img_src,  req.body.img_file
+  // }
+  //   , function (err, result, fields) {
+  //   if (err) throw err;
+    console.log(req.body.img_file);
+  });
+/*});TODO need to separate the image src from the entire content, add a title
 to the PostMaker and send it though the post function
 DONT separate the text, the function in BlogPost already does that*/
 app.get('/posters', (req, res) => {
