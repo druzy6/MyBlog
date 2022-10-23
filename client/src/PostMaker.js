@@ -1,6 +1,6 @@
 import React from 'react';
 import {Form, Button} from 'react-bootstrap';
-import {useState, useEffect} from 'react';
+import {useState, useEffect, Fragment} from 'react';
 import axios from 'axios';
 
 function PostMaker(){
@@ -39,12 +39,8 @@ function PostMaker(){
 
 
   return(
-    <div>
+    <Fragment>
       <Form>
-        <Form.Group controlId="formFileMultiple" className="mb-3">
-          <Form.Label>post pictures</Form.Label>
-          <Form.Control type="file" value={pics} onChange={picsAdd} multiple />
-        </Form.Group>
         <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
           <Form.Label>char count: {chars.numOfLetters}</Form.Label>
           <Form.Control as="textarea" rows={12} onChange={charHandle} />
@@ -53,7 +49,7 @@ function PostMaker(){
           Submit poster
         </Button>
       </Form>
-    </div>
+    </Fragment>
   );
 }
 

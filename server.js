@@ -2,6 +2,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const mongoose = require('mongoose');
+const fileUploader = require('express-fileupload');
+
 const port = process.env.PORT || 5000;
 const {
   v4: uuidv4
@@ -19,6 +21,7 @@ const app = express();
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(cors());
 app.use(express.json());
+app.use(fileUpload);
 
 //API routes
 
@@ -27,21 +30,21 @@ app.get('/', (req, res) =>{
 });
 
 app.post('/create/newpost', function(req, res){
-  // const data = req.body.content;
-  // connection.query("CALL insert_image(?,?);", () => {
-  //
-  //   req.body.img_src,  req.body.img_file
-  // }
-  //   , function (err, result, fields) {
-  //   if (err) throw err;
-    console.log(req.body.img_file);
+  if(req.files == null){
+    return(-1);
+  }
+  const file = req.files.file;
+  file.mv('${__dirname}/client/public/${file.name}', err => {
+    console.log(err);
   });
+  // need to send this here to the sql database
+});
 /*});TODO need to separate the image src from the entire content, add a title
 to the PostMaker and send it though the post function
 DONT separate the text, the function in BlogPost already does that*/
 app.get('/posters', (req, res) => {
   connection.query('SELECT * FROM posters' ,function(err, rows){
-    if(err){
+    if(err)){
       console.log(err);
     }else{
       console.log(rows);
