@@ -42,6 +42,7 @@ function PostMaker(){
       <Form>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         <Form.Group controlId="formFileMultiple" className="mb-3">
           <Form.Label>upload pictures</Form.Label>
           <Form.Control type="file" value={pics} onChange={picsAdd} multiple />
@@ -51,6 +52,12 @@ function PostMaker(){
 >>>>>>> e5d32a00f91759d67c7f377838a4535bd50c8f0c
 =======
 >>>>>>> parent of d16a02c (image_upload_work)
+=======
+        <Form.Group controlId="formFileMultiple" className="mb-3">
+          <Form.Label>post pictures</Form.Label>
+          <Form.Control type="file" value={pics} onChange={picsAdd} multiple />
+        </Form.Group>
+>>>>>>> parent of 1cb7fcb (database_work)
         <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
           <Form.Label>char count: {chars}</Form.Label>
           <Form.Control as="textarea" rows={12} onChange={charHandle} />

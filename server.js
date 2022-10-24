@@ -43,12 +43,16 @@ app.post('/create/newpost', function(req, res){
 /*});TODO need to separate the image src from the entire content, add a title
 =======
   const data = req.body.content;
-  connection.query('CALL insert_image(?,?)', [])
+  console.log(data);
+});
 
+<<<<<<< HEAD
 });/*TODO need to separate the image src from the entire content, add a title
 >>>>>>> parent of d16a02c (image_upload_work)
 to the PostMaker and send it though the post function
 DONT separate the text, the function in BlogPost already does that*/
+=======
+>>>>>>> parent of 1cb7fcb (database_work)
 app.get('/posters', (req, res) => {
   connection.query('SELECT * FROM posters' ,function(err, rows){
     if(err)){
