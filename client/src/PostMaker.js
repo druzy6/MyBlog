@@ -6,18 +6,12 @@ import axios from 'axios';
 function PostMaker(){
   const url = "http://localhost:5000/create/newpost";
 
-  const [chars, setChars] = useState({
-    content: String,
-    numOfLetters: Number
-  });
+  const [chars, setChars] = useState();
   const [pics, setPics] = useState([]);
 
   function charHandle(event){
     const {value} = event.target;
-    setChars({
-      content: value,
-      numOfLetters: value.length
-    });
+    setChars(value.length);
   }
 
   function picsAdd(event){
@@ -35,22 +29,18 @@ function PostMaker(){
   }
 
   function formSub(event){
-    console.log(chars);
-    const img_src = String(chars).match('/src=".*?/g');
-    const img_file = pics;
     axios.post(url, {
-      content: chars.content,
-      img_src: img_src,
-      img_file: img_file
+      content: chars
     }).then((response) =>{
       console.log(response);
     });
-  }//check useRef for the file upload.
+  }
 
 
   return(
     <Fragment>
       <Form>
+<<<<<<< HEAD
 <<<<<<< HEAD
         <Form.Group controlId="formFileMultiple" className="mb-3">
           <Form.Label>upload pictures</Form.Label>
@@ -59,8 +49,10 @@ function PostMaker(){
         </Form.Group>
 =======
 >>>>>>> e5d32a00f91759d67c7f377838a4535bd50c8f0c
+=======
+>>>>>>> parent of d16a02c (image_upload_work)
         <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-          <Form.Label>char count: {chars.numOfLetters}</Form.Label>
+          <Form.Label>char count: {chars}</Form.Label>
           <Form.Control as="textarea" rows={12} onChange={charHandle} />
         </Form.Group>
         <Button variant="primary" onClick={formSub} >

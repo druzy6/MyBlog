@@ -30,6 +30,7 @@ app.get('/', (req, res) =>{
 });
 
 app.post('/create/newpost', function(req, res){
+<<<<<<< HEAD
   if(req.files == null){
     return(-1);
   }
@@ -40,6 +41,12 @@ app.post('/create/newpost', function(req, res){
   // need to send this here to the sql database
 });
 /*});TODO need to separate the image src from the entire content, add a title
+=======
+  const data = req.body.content;
+  connection.query('CALL insert_image(?,?)', [])
+
+});/*TODO need to separate the image src from the entire content, add a title
+>>>>>>> parent of d16a02c (image_upload_work)
 to the PostMaker and send it though the post function
 DONT separate the text, the function in BlogPost already does that*/
 app.get('/posters', (req, res) => {
