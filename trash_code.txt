@@ -1,3 +1,12 @@
+// const data = req.body.content;
+// connection.query("CALL insert_image(?,?);", () => {
+//
+//   req.body.img_src,  req.body.img_file
+// }
+//   , function (err, result, fields) {
+//   if (err) throw err;
+
+
 // if(text.length > images.length){
   //   for(i in images.length){
     //       content += <h1> {text[i]} </h1>;
