@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const mongoose = require('mongoose');
-const fileUploader = require('express-fileupload');
+const fileUpload = require('express-fileupload');
 
 const port = process.env.PORT || 5000;
 const {
@@ -30,32 +30,30 @@ app.get('/', (req, res) =>{
 });
 
 app.post('/create/newpost', function(req, res){
-<<<<<<< HEAD
   if(req.files == null){
     return(-1);
   }
   const file = req.files.file;
   file.mv('${__dirname}/client/public/${file.name}', err => {
-    console.log(err);
+    if(err){
+      console.log(err);
+      return res.status(500).send(err);
+    }
+    res.json({fileName: file.name, filePath: '/public/${file.name}'});
   });
   // need to send this here to the sql database
 });
 /*});TODO need to separate the image src from the entire content, add a title
-=======
   const data = req.body.content;
   console.log(data);
 });
 
-<<<<<<< HEAD
 });/*TODO need to separate the image src from the entire content, add a title
->>>>>>> parent of d16a02c (image_upload_work)
 to the PostMaker and send it though the post function
 DONT separate the text, the function in BlogPost already does that*/
-=======
->>>>>>> parent of 1cb7fcb (database_work)
 app.get('/posters', (req, res) => {
   connection.query('SELECT * FROM posters' ,function(err, rows){
-    if(err)){
+    if(err){
       console.log(err);
     }else{
       console.log(rows);
