@@ -1,23 +1,7 @@
-
 import 'bootstrap/dist/css/bootstrap.min.css';
 import NavHome from './NavHome';
-import axios from 'axios';
-import {useState, useEffect} from 'react';
-import Article from './Article';
 
 function App() {
-  const [posts, setPosts] = useState([]);
-
-  useEffect(() => {
-    axios.get('http://localhost:5000/posters')
-    .then(res => {
-      if(res){
-        setPosts(res.data);
-        console.log(posts);
-      }
-    }).catch(err => console.log(err));
-  });
-
   return (
     <div className="App" >
         <NavHome />

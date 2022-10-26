@@ -9,7 +9,7 @@ function Blog(props){
   const {title} = useParams();
 
   useEffect(() => {
-    axios.get('http://localhost:5000/posters')
+    axios.get('http://localhost:5000/')
     .then(res => {
       console.log(res);
       if(!!res){
@@ -21,8 +21,8 @@ function Blog(props){
   return(
     <div>
       {posts.map(post =>{
-        if(post.post_title == title){
-          return(
+          if(post.post_title === title){
+            return(
             <BlogPost
               title={post.post_title}
               content={post.content}

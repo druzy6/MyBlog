@@ -6,8 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import {BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom'
 import Home from './Home';
 import PostMaker from './PostMaker';
-import BlogPost from './BlogPost';
-import Blog from './Blog'
+import Blog from './Blog';
 
 ReactDOM.render(
   <Router>

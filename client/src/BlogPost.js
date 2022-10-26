@@ -1,25 +1,9 @@
 import React from 'react';
 import './BlogPost.css'
-import {Form, Button} from 'react-bootstrap';
-import {useState, useEffect} from 'react';
-import axios from 'axios';
 
 function BlogPost(props){
 
-  const [posts, setPosts] = useState([]);
   const composedText = textComposer();
-
-
-  useEffect(() => {
-    axios.get('http://localhost:5000/posters')
-    .then(res => {
-      console.log(res);
-      if(!!res){
-        console.log(res.data);
-        setPosts(res.data);
-      }
-    }).catch(err => console.log(err));
-  });
 
 /*I want to take the raw text from the server, extract the text that calls
 for an image in html, insent the image html instead while maintaining
@@ -54,6 +38,8 @@ in the blog*/
           content += <img class="postImg" src={indexCase_2[j].image.match('/".*?"')}/>;
           j++;
           break;
+        default:
+          console.log('something went bad');
       }
     }
     return content;

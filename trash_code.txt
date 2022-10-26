@@ -34,3 +34,10 @@
                 //     index: indexFound.index
                 //   }];
                 // }
+                // <input
+                //   type='text'
+                //   name='content'
+                //   value={chars}
+                //   onChange={charHandle}
+                //   />
+                // <button onClick={formSub}>submit</button>

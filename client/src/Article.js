@@ -1,5 +1,4 @@
 import React from 'react';
-import {Container, Col, Row} from 'react-bootstrap';
 import './Article.css';
 import _ from 'lodash';
 

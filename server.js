@@ -21,11 +21,19 @@ const app = express();
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(cors());
 app.use(express.json());
-app.use(fileUpload);
+app.use(fileUpload());
 
 //API routes
 
 app.get('/', (req, res) =>{
+  connection.query('SELECT * FROM posters' ,function(err, rows){
+    if(err){
+      console.log(err);
+    }else{
+      console.log(rows);
+      res.send(rows);
+    }
+  });
   console.log('express running');
 });
 
@@ -51,16 +59,7 @@ app.post('/create/newpost', function(req, res){
 });/*TODO need to separate the image src from the entire content, add a title
 to the PostMaker and send it though the post function
 DONT separate the text, the function in BlogPost already does that*/
-app.get('/posters', (req, res) => {
-  connection.query('SELECT * FROM posters' ,function(err, rows){
-    if(err){
-      console.log(err);
-    }else{
-      console.log(rows);
-      res.send(rows);
-    }
-  });
-});
+
 
 app.listen(port, function() {
   console.log('works');

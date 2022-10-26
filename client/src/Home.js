@@ -9,7 +9,7 @@ function Home(){
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:5000/posters')
+    axios.get('http://localhost:5000/')
     .then(res => {
       console.log(res);
       if(!!res){
