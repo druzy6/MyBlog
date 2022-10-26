@@ -39,7 +39,7 @@ function FileUploader(){
         <Form.Label>{file.name}</Form.Label>
         <Form.Control type="file" value={file} onChange={fileHandler}/>
       </Form.Group>
-    </Fragment>    
+    </Fragment>
   );
 }
 export default FileUploader;

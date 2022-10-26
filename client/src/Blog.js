@@ -9,7 +9,7 @@ function Blog(props){
   const {title} = useParams();
 
   useEffect(() => {
-    axios.get('http://localhost:5000/')
+    axios.get('http://localhost:5000/posters')
     .then(res => {
       console.log(res);
       if(!!res){
