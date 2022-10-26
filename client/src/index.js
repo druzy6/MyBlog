@@ -9,14 +9,12 @@ import PostMaker from './PostMaker';
 import BlogPost from './BlogPost';
 import Blog from './Blog'
 
-const index = 1;
 ReactDOM.render(
   <Router>
     <App />
     <Routes>
       <Route path="/" element={<Home />}/>
       <Route path="/create" element={<PostMaker />} />
-      <Route path="/post" element={<Blog index={index} />} />
       <Route path="/:title" element={<Blog />}/>
     </Routes>
   </Router>,

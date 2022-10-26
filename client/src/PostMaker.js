@@ -2,7 +2,7 @@ import React from 'react';
 import {Form, Button} from 'react-bootstrap';
 import {useState, useEffect, Fragment} from 'react';
 import axios from 'axios';
-import FileUploader from './FileUploader'
+// import FileUploader from './FileUploader.js';
 
 function PostMaker(){
   const url = "http://localhost:5000/create/newpost";
@@ -41,11 +41,6 @@ function PostMaker(){
   return(
     <Fragment>
       <Form>
-        <FileUploader/>
-        <Form.Group controlId="formFileMultiple" className="mb-3">
-          <Form.Label>post pictures</Form.Label>
-          <Form.Control type="file" value={pics} onChange={picsAdd} multiple />
-        </Form.Group>
         <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
           <Form.Label>char count: {chars}</Form.Label>
           <Form.Control as="textarea" rows={12} onChange={charHandle} />
@@ -58,6 +53,7 @@ function PostMaker(){
   );
 }
 
+// <FileUploader/>
 export default PostMaker;
 // <input
 //   type='text'

@@ -3,7 +3,7 @@ import {Form, Button} from 'react-bootstrap';
 import {useState, useEffect, Fragment} from 'react';
 import axios from 'axios';
 
-function fileUploader(){
+function FileUploader(){
 
   const [file, setFile] = useState({
     name: 'choose file',
@@ -22,13 +22,8 @@ function fileUploader(){
     event.preventDefault();
     const formData = new FormData();
     formData.append('file', file);
-
     try{
-      const res = await axios.post('/create/newpost', formData, () =>{
-        headers:{
-          'Content-Type': 'multipart/form-data '
-        }
-      })
+      let res = axios.post('/create/newpost', formData);
     }catch(err){
       if(err.response.status === 500){
         console.log('there was a problem with the server');
@@ -39,9 +34,10 @@ function fileUploader(){
   }
 
   return(
-    <Form.Group controlId="formFile" className="mb-3" onSubmit={}>
+    <Form.Group controlId="formFile" className="mb-3" onSubmit={uploadFile}>
       <Form.Label>{file.name}</Form.Label>
       <Form.Control type="file" value={file} onChange={fileHandler}/>
     </Form.Group>
   );
 }
+export default FileUploader;
