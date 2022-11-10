@@ -30,10 +30,10 @@ app.get('/', (req, res) =>{
 });
 
 app.post('/create/newpost', function(req, res){
-  if(req.files == null){
+  if(req.file == null){
     return(-1);
   }
-  const file = req.files.file;
+  const file = req.file;
   file.mv('${__dirname}/client/public/${file.name}', err => {
     if(err){
       console.log(err);

@@ -13,10 +13,11 @@ function FileUploader(){
 
   function fileHandler(event){
     setFile({
-      name: event.target.files[0].name,
-      fileContent: event.target.files[0]
+      name: e.target.files[0].name,
+      fileContent: e.target.files[0]
     })
   }
+  console.log(file);
 
   function uploadFile(event){
     event.preventDefault();
