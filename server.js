@@ -30,19 +30,9 @@ app.get('/', (req, res) =>{
 });
 
 app.post('/create/newpost', function(req, res){
-  if(req.file == null){
-    return(-1);
-  }
-  const file = req.file;
-  file.mv('${__dirname}/client/public/${file.name}', err => {
-    if(err){
-      console.log(err);
-      return res.status(500).send(err);
-    }
-    res.json({fileName: file.name, filePath: '/public/${file.name}'});
-  });
-  // need to send this here to the sql database
+  console.log(req.body.file);
 });
+  // need to send this here to the sql database
 /*});TODO need to separate the image src from the entire content, add a title
   const data = req.body.content;
   console.log(data);

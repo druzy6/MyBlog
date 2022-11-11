@@ -9,13 +9,12 @@ function FileUploader(){
     name: 'choose file',
     fileContent: String
   });
-  const [uploadedFile, setUploadedFile] = useState({});
 
-  function fileHandler(event){
+  function fileHandler(e){
     setFile({
       name: e.target.files[0].name,
       fileContent: e.target.files[0]
-    })
+    });
   }
   console.log(file);
 
@@ -24,7 +23,7 @@ function FileUploader(){
     const formData = new FormData();
     formData.append('file', file);
     try{
-      let res = axios.post('/create/newpost', formData);
+      let res = axios.post('http://localhost:5000/create/newpost', formData);
     }catch(err){
       if(err.response.status === 500){
         console.log('there was a problem with the server');
@@ -36,10 +35,10 @@ function FileUploader(){
 
   return(
     <Fragment>
-      <Form.Group controlId="formFile" className="mb-3" onSubmit={uploadFile}>
-        <Form.Label>{file.name}</Form.Label>
-        <Form.Control type="file" value={file} onChange={fileHandler}/>
-      </Form.Group>
+      <form>
+        <input type="file" onChange={fileHandler}/>
+        <button type="submit" onClick={uploadFile}>upload</button>
+      </form>
     </Fragment>
   );
 }
